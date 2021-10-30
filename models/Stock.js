@@ -1,0 +1,19 @@
+import mongoose from 'mongoose'
+
+const StockSchema = mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    symbol: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+  },
+  { timestamps: true }
+)
+
+export default mongoose.model('Stock', StockSchema)
