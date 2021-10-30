@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     const stocks = await Stock.find()
     res.json(stocks)
   } catch (err) {
-    res.status(500).send('server error')
+    res.status(500).send(err)
   }
 })
 
@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
     const newStock = await stock.save()
     res.json(newStock)
   } catch (err) {
-    res.status(400).send('error saving stock')
+    res.status(400).send(err)
   }
 })
 
@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
     const stock = await Stock.findById(req.params.id)
     res.json(stock)
   } catch (err) {
-    res.status(500).send('server error')
+    res.status(500).send(err)
   }
 })
 
@@ -41,9 +41,9 @@ router.get('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const stock = await Stock.findByIdAndDelete(req.params.id)
-    res.json(stock)
+    res.status(200).json(`${stock.name} deleted`)
   } catch (err) {
-    res.status(500).send('server error')
+    res.status(500).send(err)
   }
 })
 
@@ -55,7 +55,7 @@ router.put('/:id', async (req, res) => {
     })
     res.json(stock)
   } catch (err) {
-    res.status(500).send('server error')
+    res.status(500).send(err)
   }
 })
 

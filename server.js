@@ -31,9 +31,11 @@ mongoose
 
 //import routes
 import stockRoutes from './routes/Stock.js'
+import buyRoutes from './routes/Buy.js'
 
 //initalize routes
 app.use('/api/stocks', stockRoutes)
+app.use('/api/buys', buyRoutes)
 
 //Heroku deployment
 if (process.env.NODE_ENV === 'production') {
