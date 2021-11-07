@@ -4,13 +4,13 @@ const BuySchema = mongoose.Schema(
   {
     name: {
       type: String,
-      // required: true,
-      enum: [{ type: mongoose.Types.ObjectId, required: true, ref: 'Stock' }],
+      required: true,
+      enum: ['Bitcoin', 'Ethereum', 'Litecoin', 'Bitcoin Cash', 'Dogecoin'],
     },
     symbol: {
       type: String,
-      // required: true,
-      enum: [{ type: mongoose.Types.ObjectId, required: true, ref: 'Stock' }],
+      required: true,
+      enum: ['BTC', 'ETH', 'LTC', 'BCH', 'DOGE'],
     },
     quantity: {
       type: Number,

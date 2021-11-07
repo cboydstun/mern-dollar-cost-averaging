@@ -37,6 +37,16 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+//@GET - api/stocks/name - get a stock by name
+router.get('/name/:name', async (req, res) => {
+  try {
+    const stock = await Stock.findOne({ name: req.params.name })
+    res.json(stock)
+  } catch (err) {
+    res.status(500).send(err)
+  }
+})
+
 //@DELETE - /api/stocks/:id  - delete a stock by id
 router.delete('/:id', async (req, res) => {
   try {

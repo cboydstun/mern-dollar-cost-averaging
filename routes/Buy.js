@@ -34,6 +34,30 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+//@GET - /api/buys/name - search by name not case sensitive
+router.get('/name/:name', async (req, res) => {
+  try {
+    const buy = await Buy.find({
+      name: { $regex: req.params.name, $options: 'i' },
+    })
+    res.json(buy)
+  } catch (err) {
+    res.status(500).send('server error')
+  }
+})
+
+//@GET - /api/buys/symbol - search by symbol not case sensitive
+router.get('/symbol/:symbol', async (req, res) => {
+  try {
+    const buy = await Buy.find({
+      symbol: { $regex: req.params.symbol, $options: 'i' },
+    })
+    res.json(buy)
+  } catch (err) {
+    res.status(500).send('server error')
+  }
+})
+
 //@PUT - /api/buys/:id - update a buy by id
 router.put('/:id', async (req, res) => {
   try {
