@@ -1,9 +1,11 @@
 import React from 'react'
 
+import CryptoBuys from './components/CryptoBuys'
+
 export default function App() {
   return (
     <div>
-      <h1>hey from app</h1>
+      <CryptoBuys />
     </div>
   )
 }

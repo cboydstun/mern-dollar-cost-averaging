@@ -68,6 +68,7 @@ router.put('/:id', async (req, res) => {
     res.json(buy)
   } catch (err) {
     res.status(500).send('server error')
+    console.log(err)
   }
 })
 
