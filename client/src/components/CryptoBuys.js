@@ -41,15 +41,13 @@ export default function CryptoBuys() {
   }
 
   const updateBuy = (id) => {
-    const newData = prompt('Enter new data.')
-
     axios
       .put(`/api/buys/${id}`, {
-        name,
-        symbol,
-        quantity,
-        cost,
-        date,
+        name: name,
+        symbol: symbol,
+        quantity: quantity,
+        cost: cost,
+        date: date,
       })
       .then((res) => {
         setBuys(buys.map((buy) => (buy._id === id ? res.data : buy)))
