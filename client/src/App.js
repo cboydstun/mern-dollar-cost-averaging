@@ -1,11 +1,19 @@
 import React from 'react'
 
-import CryptoBuys from './components/CryptoBuys'
+import AddBuyForm from './components/AddBuyForm'
+import BuyList from './components/BuyList'
+import BuyTotal from './components/BuyTotal'
+
+import { AppProvider } from './context/AppContext';
 
 export default function App() {
   return (
-    <div>
-      <CryptoBuys />
-    </div>
+    <AppProvider>
+      <div>
+        <AddBuyForm />
+        <BuyList />
+        <BuyTotal />
+      </div>
+    </AppProvider>
   )
 }
